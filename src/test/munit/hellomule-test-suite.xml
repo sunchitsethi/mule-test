@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="hellomule-test-suite.xml" />
+	<munit:test name="hellomule-test-suite-hellomuleFlowTest" doc:id="0296477c-43a4-40d1-907e-93de57caed6e" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to hellomuleFlow" doc:id="930396e8-e507-4051-ad31-1554f273981e" name="hellomuleFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="38b43e34-da52-4f5f-880a-d1b3819fb580" actual="#[payload.data]" expected='hello there'/>
+		</munit:validation>
+	</munit:test>
+
+</mule>
